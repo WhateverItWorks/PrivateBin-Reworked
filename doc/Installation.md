@@ -1,6 +1,8 @@
 # Installation
 
-**TL;DR:** Download the
+## TL;DR
+
+Download the
 [latest release archive](https://github.com/PrivateBin/PrivateBin/releases/latest)
 (with the link labelled as "Source code (…)") and extract it in your web hosts
 folder where you want to install your PrivateBin instance. We try to provide a
@@ -18,14 +20,7 @@ install and configure PrivateBin on your server. It's available on
 
 ### Minimal Requirements
 
-- PHP version 7.0 or above
-  - Or PHP version 5.6 AND _one_ of the following sources of cryptographically
-    safe randomness:
-    - [Libsodium](https://download.libsodium.org/libsodium/content/installation/)
-      and it's [PHP extension](https://paragonie.com/book/pecl-libsodium/read/00-intro.md#installing-libsodium)
-    - `open_basedir` access to `/dev/urandom`
-    - mcrypt extension AND `open_basedir` access to `/dev/urandom`
-    - com_dotnet extension
+- PHP version 7.3 or above
 - GD extension (when using identicon or vizhash icons, jdenticon works without it)
 - zlib extension
 - some disk space or a database supported by [PDO](https://php.net/manual/book.pdo.php)
@@ -205,7 +200,7 @@ CREATE INDEX parent ON prefix_comment(pasteid);
 CREATE TABLE prefix_config (
     id CHAR(16) NOT NULL, value TEXT, PRIMARY KEY (id)
 );
-INSERT INTO prefix_config VALUES('VERSION', '1.5.1');
+INSERT INTO prefix_config VALUES('VERSION', '1.5.2');
 ```
 
 In **PostgreSQL**, the `data`, `attachment`, `nickname` and `vizhash` columns
