@@ -4,28 +4,41 @@ body:
   - type: markdown
     attributes:
       value: |
-        Describe the problem/question: A clear and concise description of what the problem/issue or question is.
+        ## Thanks for taking the time to fill out this form!
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the problem/question
+      description: A clear and concise description of what the problem/issue or question is.
+    validations:
+      required: true
   - type: checkboxes
+    id: readed-faq
     attributes:
-      label: Please tick this to confirm
+      label: Did you use the FAQ section?
+      description: Have you read [the FAQ](https://github.com/PrivateBin/PrivateBin/wiki/FAQ)?
       options:
-        - label: Yes, I have read [the FAQ](https://github.com/PrivateBin/PrivateBin/wiki/FAQ) and I found no solution/answer there.
-  - type: markdown
+        - label: Yes, I have read the FAQ and I found no solution/answer there.
+          required: true
+  - type: textarea
+    id: what_you_did
     attributes:
+      label: What you did?
+      description: Tell us how to reproduce the problem.
       value: |
-        ## What you did
-        Tell us how to reproduce the problem.
-
         1.
         2.
+        ...
   - type: textarea
     id: what_happens
     attributes:
       label: What happens
+      placeholder: Tell us what you see!
   - type: textarea
     id: what_should_happen
     attributes:
       label: What should happen
+      placeholder: Tell us what you want to see!
   - type: textarea
     id: additional_info
     attributes:
@@ -51,12 +64,14 @@ body:
     id: privatebin_version
     attributes:
       label: PrivateBin version
-  - type: radio
+  - type: dropdown
     id: reproduce_issue
     attributes:
-      label: I can reproduce this issue on [https://privatebin.net](https://privatebin.net)
+      label: Issue reproducibility
+      description: Can you reproduce this issue on [https://privatebin.net](https://privatebin.net)?
       options:
-        - label: Yes
-          value: Yes
-        - label: No
-          value: No
+        - "No"
+        - "Yes"
+      default: 0
+    validations:
+      required: true
